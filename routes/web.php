@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get("/", [\App\Http\Controllers\PrincipalController::class, 'principal']);
+
+Route::get("/teste/{nome}/{idade}", function(string $nome, string $idade) {
+    echo 'Estamos aqui: '.$nome.' - Idade: '.$idade.' Anos';
+});
+
+Route::get('/teste', function () {
     return view('welcome');
 });
